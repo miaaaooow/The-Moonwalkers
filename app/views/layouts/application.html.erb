@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TheMoonwalkers</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<ul class="menu">
+		<li>Начало</li>
+		<li><%= link_to "Новини", :novelties %></li>
+		<li>Бележки</li>
+		<li>Moonwalkers</li>
+		<li>Галерия</li>
+		<li>Видео</li>
+		<li>Форум</li>
+		<li>Контакти</li>
+		<li>Потребители</li>
+		<li>Заявки за Потребители</li>
+		<li>Контакти</li>
+	</ul>
+
+<%= yield %>
+
+</body>
+</html>
