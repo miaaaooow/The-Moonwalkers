@@ -2,24 +2,20 @@
 
 class NoveltiesController < ApplicationController
   # GET /novelties
-  # GET /novelties.json
   def index
-    @novelties = Novelty.all
+    @novelties = Novelty.page params[:page]
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @novelties }
+      format.html
     end
   end
 
   # GET /novelties/1
-  # GET /novelties/1.json
   def show
     @novelty = Novelty.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @novelty }
+      format.html 
     end
   end
 
@@ -30,7 +26,6 @@ class NoveltiesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @novelty }
     end
   end
 
@@ -47,10 +42,8 @@ class NoveltiesController < ApplicationController
     respond_to do |format|
       if @novelty.save
         format.html { redirect_to @novelty, notice: 'Новината бе създадена успешно.' }
-        format.json { render json: @novelty, status: :created, location: @novelty }
       else
         format.html { render action: "new" }
-        format.json { render json: @novelty.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,10 +56,8 @@ class NoveltiesController < ApplicationController
     respond_to do |format|
       if @novelty.update_attributes(params[:novelty])
         format.html { redirect_to @novelty, notice: 'Новината бе обновена успешно.' }
-        format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @novelty.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -79,7 +70,6 @@ class NoveltiesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to novelties_url }
-      format.json { head :no_content }
     end
   end
 end

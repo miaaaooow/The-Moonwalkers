@@ -1,0 +1,18 @@
+%h1 Новини
+
+%h3
+  = link_to 'Добави Новина', new_novelty_path 
+
+  - if @novelties.empty?
+    %p Няма новини.
+  -else
+  - @novelties.each do |novelty| 
+    %h3.novelty_title
+      - novelty.title
+    .novelty_text
+      - novelty.text
+    .edit_menu
+      = link_to 'Редактирай', edit_novelty_path(novelty)
+      = link_to 'Изтрий', novelty, confirm: 'Сигурни ли сте?', method: :delete
+
+= will_paginate @novelties

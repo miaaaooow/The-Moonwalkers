@@ -1,0 +1,15 @@
+= form_for @novelty do |form|
+  - if @novelty.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@novelty.errors.count, "error") възпрепятстваха запомнянето на тази новина. 
+
+      %ul
+      - @novelty.errors.full_messages.each do |msg| 
+        %li 
+          = msg
+  = form.label :title, "Заглавие"
+  = form.text_field :title
+  = form.label :text, "Съдържание"
+  = form.text_field :text
+  = form.submit
