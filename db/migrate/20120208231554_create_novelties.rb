@@ -1,8 +1,9 @@
 class CreateNovelties < ActiveRecord::Migration
   def change
     create_table :novelties do |t|
-      t.integer :created_by
-      t.string :content
+      t.string :title
+      t.string :text
+
       t.timestamps
     end
   end

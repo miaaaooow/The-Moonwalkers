@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class NoveltiesController < ApplicationController
   # GET /novelties
   # GET /novelties.json
