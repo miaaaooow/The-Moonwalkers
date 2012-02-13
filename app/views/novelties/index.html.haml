@@ -15,4 +15,4 @@
       = link_to 'Редактирай', edit_novelty_path(novelty)
       = link_to 'Изтрий', novelty, confirm: 'Сигурни ли сте?', method: :delete
 
-= will_paginate @novelties
+= will_paginate @novelties, :previous_label => t("previous"), :next_label => t("next")

@@ -1,11 +1,21 @@
 TheMoonwalkers::Application.routes.draw do
 
-  resources :m_w_users
+  root :to => 'history#index'
+  match 'history' => 'history#index'
+  
+  resources :users
 
   resources :novelties
 
-  match 'history' => 'history#index'
-  root :to => 'history#index'
+  resources :dashboard_entries
+
+  resources :albums do
+    resource :album_photo
+  end
+
+  resources :forum_topics do
+    resource :forum_reply
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

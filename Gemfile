@@ -26,6 +26,7 @@ group :development, :test do
   gem 'haml-rails'
   gem 'pg'
   gem 'rspec-rails', '~>2.6'
+  gem 'webrat'
 end
 
 

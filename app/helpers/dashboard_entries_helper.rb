@@ -1,0 +1,2 @@
+module DashboardEntriesHelper
+end

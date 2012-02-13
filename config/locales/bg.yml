@@ -7,11 +7,19 @@ en:
 bg:
   activerecord:
     models:
-      novelty: Новост
-      dashboard_novelty: Вътрешна Новина
+      user: Потребител
+      novelty: Новина
+      dashboard_entry: Вътрешна Новина
+      album: Албум
+      album_photo: Снимка
       forum_topic: Тема
+      forum_reply: Отговор
   helpers:
     submit:
       create: "Добави"
       update: "Обнови"
-      
+      edit: "Редактирай"
+  next: "Следващи"
+  previous: "Предишни"
+  cancel: "Отмени"
+

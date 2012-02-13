@@ -1,0 +1,19 @@
+%h1 Listing dashboard_entries
+
+%table
+  %tr
+    %th Content
+    %th
+    %th
+    %th
+
+  - @dashboard_entries.each do |dashboard_entry|
+    %tr
+      %td= dashboard_entry.content
+      %td= link_to 'Show', dashboard_entry
+      %td= link_to 'Edit', edit_dashboard_entry_path(dashboard_entry)
+      %td= link_to 'Destroy', dashboard_entry, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Dashboard entry', new_dashboard_entry_path
