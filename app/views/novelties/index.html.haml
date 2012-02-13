@@ -8,9 +8,9 @@
   -else
   - @novelties.each do |novelty| 
     %h3.novelty_title
-      - novelty.title
+      = novelty.title
     .novelty_text
-      - novelty.text
+      = novelty.text
     .edit_menu
       = link_to 'Редактирай', edit_novelty_path(novelty)
       = link_to 'Изтрий', novelty, confirm: 'Сигурни ли сте?', method: :delete

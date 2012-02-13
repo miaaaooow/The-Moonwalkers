@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208231554) do
+ActiveRecord::Schema.define(:version => 20120212213142) do
+
+  create_table "m_w_users", :force => true do |t|
+    t.string   "username",                                         :null => false
+    t.string   "name"
+    t.string   "display_name"
+    t.text     "description"
+    t.string   "email",                                            :null => false
+    t.string   "hashed_password",                                  :null => false
+    t.string   "salt"
+    t.string   "song",            :limit => 64
+    t.string   "picture"
+    t.string   "birthday"
+    t.boolean  "admin",                         :default => false
+    t.boolean  "moonwalker",                    :default => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
 
   create_table "novelties", :force => true do |t|
     t.string   "title"

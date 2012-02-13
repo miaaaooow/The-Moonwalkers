@@ -22,15 +22,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :production, :test do
+group :development, :test do
+  gem 'haml-rails'
   gem 'pg'
   gem 'rspec-rails', '~>2.6'
 end
 
-group :test do
-  gem 'pg'
-  gem 'rspec-rails', '~>2.6'
-end
 
 gem 'jquery-rails'
 

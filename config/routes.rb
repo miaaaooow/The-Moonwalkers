@@ -1,5 +1,7 @@
 TheMoonwalkers::Application.routes.draw do
 
+  resources :m_w_users
+
   resources :novelties
 
   match 'history' => 'history#index'

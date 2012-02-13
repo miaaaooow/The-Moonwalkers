@@ -10,4 +10,8 @@ bg:
       novelty: Новост
       dashboard_novelty: Вътрешна Новина
       forum_topic: Тема
-
+  helpers:
+    submit:
+      create: "Добави"
+      update: "Обнови"
+      
