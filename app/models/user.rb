@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
                        :uniqueness => true
   
   validates :email, :length => { :minimum => 7, :maximum => 254 },
-                    :uniqueness => true,
-                    :email => true
+                    :uniqueness => true#,
+                  #  :email => true
     
   has_many :novelties
   has_many :dashboard_entry
@@ -17,12 +17,20 @@ class User < ActiveRecord::Base
   has_many :forum_replies
   has_one  :mw_user
 
+# multiple foreign keys to Relationship
+  has_many :from_relationships, :class_name => Relationship, :foreign_key => :from_user_id
+  has_many :to_relationships, :class_name => Relationship, :foreign_key => :to_user_id
+
+
+
+
+
   def role 
-    role = 'Потребител' 
+    role = "User"
     if self.admin?
-      role = 'Администратор'
+      role = "Admin"
     elsif self.moonwalker?
-      role = 'Moonwalker'
+      role = "Moonwalker"
     end
     
     role

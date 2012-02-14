@@ -1,5 +1,20 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  before(:each) do
+    @user = User.new
+  end
+
+  it "should be valid" do
+    @user.should be_valid
+  end
+
+  it "should have correct email" do
+
+  end
+
+  it "should have correct role" do
+    
+  end
 end

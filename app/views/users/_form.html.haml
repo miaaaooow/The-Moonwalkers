@@ -1,10 +1,28 @@
-= form_for @novelty do |form|
-  = form.label :title, "Заглавие"
+= form_for @users do |form|
   %br
-  = form.text_field :title
+  = form.label :username, 'Потребителско име*'
+  = form.text_field :username, :size => 40
   %br
-  = form.label :text, "Съдържание"
+  = form.label :user_password, 'Парола'
+  = form.password_field :password, :size => 40
   %br
-  = form.text_area :text
+  = form.label :user_password_confirmation, 'Потвърди'
+  = form.password_field :password_confirmation, :size => 40
+  %br
+  = form.label :name, "Име"
+  = form.text_field :name, :size => 40
+  %br 
+  = form.label :email, "e-mail*(не се показва)"
+  = form.text_field :email, :size => 40 
+  %br 
+  = form.label :contact, "Публичен контакт"
+  = form.text_field :contact, :size => 40 
+  %br
+  = form.label :song, "Любима песен"
+  = form.text_field :song, :size => 40
+  %br
+  = form.label :album, "Любим албум"
+  = form.text_field :album, :size => 40
+
   %br
   = form.submit

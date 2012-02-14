@@ -3,7 +3,11 @@ TheMoonwalkers::Application.routes.draw do
   root :to => 'history#index'
   match 'history' => 'history#index'
   
-  resources :users
+  resources :users do
+    collection do 
+      get 'moonwalkers'
+    end
+  end
 
   resources :novelties
 
@@ -13,7 +17,7 @@ TheMoonwalkers::Application.routes.draw do
     resource :album_photo
   end
 
-  resources :forum_topics do
+  resources :forum_topics, :as => "forum" do
     resource :forum_reply
   end
 

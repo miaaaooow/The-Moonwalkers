@@ -4,30 +4,21 @@
 = javascript_include_tag "application" 
 = csrf_meta_tags 
 
-%ul.navigation
-  %li
+.navigation
+  %h2
     = link_to "Начало", :history
-  %li
-    = link_to "Новини", :novelties
-  %li
-    = link_to "Бележки", :dashboard_entries
-  %li
-    = link_to "Moonwalkers"
-  %li
-    = link_to "Галерия", :albums
-  %li
-    = link_to "Видео"
-  %li
-    = link_to "Форум", :forum_topics
-  %li
+    = link_to "Новини", :novelties 
+    = link_to "Бележки", :dashboard_entries 
+    = link_to "Moonwalkers", :controller => "users", :action => "moonwalkers" 
+    = link_to "Галерия", :albums 
+    = link_to "Форум", :forum_topics 
     = link_to "Потребители", :users
+    = link_to "Профил"
 
 .login
   = link_to "Вход"
-.login
   = link_to "Изход"
-.login
-  = link_to "Регистрация"
+  = link_to "Регистрация", :controller => "users", :action => "new"
 
 = yield
 

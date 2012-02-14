@@ -3,7 +3,8 @@
 class UsersController < ApplicationController
   # GET /users
   def index
-    @users = User.page params[:page]
+    #@users = User.page params[:page]
+    @users = User.all
   end
 
   def moonwalkers
@@ -16,17 +17,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # show a moonwalker
-  def moonwalker
-    @user = User.find(params[:id])
-  end
-
   # GET /users/new
-  def register
+  def new
     @user = User.new
-    if session[:register_moonwalker]
-      @mw_user = MWUser.new
-    end
   end
 
   # GET /users/1/edit

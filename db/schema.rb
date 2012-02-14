@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213154731) do
+ActiveRecord::Schema.define(:version => 20120214120352) do
 
   create_table "album_photos", :force => true do |t|
     t.string  "photo_url"
@@ -57,12 +57,6 @@ ActiveRecord::Schema.define(:version => 20120213154731) do
     t.datetime "updated_at",         :null => false
   end
 
-  create_table "mw_users", :force => true do |t|
-    t.string "display_name"
-    t.text   "description"
-    t.string "birthday"
-  end
-
   create_table "novelties", :force => true do |t|
     t.string   "title"
     t.string   "text"
@@ -73,10 +67,10 @@ ActiveRecord::Schema.define(:version => 20120213154731) do
 
   create_table "relationships", :force => true do |t|
     t.string   "type"
-    t.integer  "from_mw_user_id"
-    t.integer  "to_mw_user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "from_user_id"
+    t.integer  "to_user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -93,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20120213154731) do
     t.boolean  "moonwalker?",                   :default => false, :null => false
     t.datetime "created_at",                                       :null => false
     t.datetime "updated_at",                                       :null => false
+    t.text     "description"
   end
 
 end
