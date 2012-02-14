@@ -41,6 +41,6 @@ class DashboardEntriesController < ApplicationController
     @dashboard_entry = DashboardEntry.find(params[:id])
     @dashboard_entry.destroy
 
-    redirect_to dashboard_entries_path
+    redirect_to dashboard_entries_path, notice: 'Новината бе изтрита успешно.'
   end
 end

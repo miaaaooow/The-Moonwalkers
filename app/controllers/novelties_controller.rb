@@ -6,11 +6,6 @@ class NoveltiesController < ApplicationController
     @novelties = Novelty.page params[:page]
   end
 
-  # GET /novelties/1
-  def show
-    @novelty = Novelty.find(params[:id])
-  end
-
   # GET /novelties/new
   def new
     @novelty = Novelty.new
@@ -48,6 +43,6 @@ class NoveltiesController < ApplicationController
     @novelty = Novelty.find(params[:id])
     @novelty.destroy
 
-    redirect_to novelties_path
+    redirect_to novelties_path, notice: 'Новината бе изтрита успешно.'
   end
 end

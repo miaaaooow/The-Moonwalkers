@@ -1,17 +1,24 @@
-%h1 Listing users
+%h1 Потребители
 
 %table
   %tr
-    %th
-    %th
-    %th
+    %th 
+    %th Потребителско име
+    %th Име
+    %th Контакт
+    %th Роля
+    %th Регистриран на
+    = if session[:admin]
+      %th Редактирай
+  - @users.each do |user| 
+    %tr 
+      %td= user.picture
+      %td= user.username
+      %td= user.name
+      %td= user.contact
+      %td= user.role
+      %td= user.created_at
+      = if session[:admin]
+        %td= link_to 'Редактирай', administrate_user_path(user)
 
-  - @users.each do |user|
-    %tr
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New User', new_user_path
+= will_paginate @users, :previous_label => t("previous"), :next_label => t("next")

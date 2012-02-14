@@ -1,7 +1,7 @@
 class Album < ActiveRecord::Base
   validates :name, :presence => true
 
-  has_many: :album_photos
+  has_many :album_photos
   
   default_scope :order => "updated_at DESC"
 

@@ -1,8 +1,8 @@
-%h1 Наши новини
+%h1 Listing dashboard_entries
 
 %table
   %tr
-    %th
+    %th Content
     %th
     %th
     %th
@@ -12,7 +12,7 @@
       %td= dashboard_entry.content
       %td= link_to 'Show', dashboard_entry
       %td= link_to 'Edit', edit_dashboard_entry_path(dashboard_entry)
-      %td= link_to 'Destroy', dashboard_entry, :confirm => 'Сигурни ли сте?', :method => :delete
+      %td= link_to 'Destroy', dashboard_entry, :confirm => 'Are you sure?', :method => :delete
 
 %br
 

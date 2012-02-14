@@ -1,6 +1,11 @@
-%p#notice= notice
+%p#notice
+  Промените бяха запазени успешно.
 
+%h3.novelty_title
+  = @novelty.title
+.novelty_text
+  = @novelty.text
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+= link_to 'Редактиране', edit_novelty_path(@novelty) |
+= link_to 'Обратно', novelties_path
+

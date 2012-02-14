@@ -1,12 +1,12 @@
+#encoding UTF-8
+
 class User < ActiveRecord::Base
-  validates :username, :presence => true, 
-                    :length => {:minimum => 1, :maximum => 254}
-                    :uniqueness => true
+  validates_presence_of  :username, :hashed_password, :email
+
+  validates :username, :length => { :minimum => 1, :maximum => 254 },
+                       :uniqueness => true
   
-  validates :hashed_password, :presence => true
-  
-  validates :email, :presence => true,
-                    :length => {:minimum => 3, :maximum => 254},
+  validates :email, :length => { :minimum => 7, :maximum => 254 },
                     :uniqueness => true,
                     :email => true
     
@@ -17,10 +17,23 @@ class User < ActiveRecord::Base
   has_many :forum_replies
   has_one  :mw_user
 
+  def role 
+    role = 'Потребител' 
+    if self.admin?
+      role = 'Администратор'
+    elsif self.moonwalker?
+      role = 'Moonwalker'
+    end
+    
+    role
+  end
+
+  self.per_page = 20
+
   private
 
   def create_salt
-      self.salt = rand(555555555)
+    self.salt = rand(555555555)
   end 
 
   def encrypt_password(password, salt)
