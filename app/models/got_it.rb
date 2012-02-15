@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class GotIt < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :dashboard_entry_id, :presence => true

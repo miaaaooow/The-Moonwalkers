@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 
 class DashboardEntriesController < ApplicationController
   def index
@@ -23,7 +23,7 @@ class DashboardEntriesController < ApplicationController
     if @dashboard_entry.save
       redirect_to dashboard_entries_path, notice: 'Новината бе създадена успешно.' 
     else
-      render action: "new"
+      render "new"
     end
   end
 
@@ -33,7 +33,7 @@ class DashboardEntriesController < ApplicationController
     if @dashboard_entry.update_attributes(params[:dashboard_entry])
       redirect_to dashboard_entries_path, notice: 'Новината бе обновена успешно.' 
     else
-      render action: "edit" 
+      render "edit" 
     end
   end
 

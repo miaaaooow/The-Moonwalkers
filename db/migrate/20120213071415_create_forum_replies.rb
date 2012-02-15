@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateForumReplies < ActiveRecord::Migration
   def up
     create_table :forum_replies do |t|

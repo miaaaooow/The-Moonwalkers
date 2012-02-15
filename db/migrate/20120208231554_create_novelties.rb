@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateNovelties < ActiveRecord::Migration
   def up
     create_table :novelties do |t|

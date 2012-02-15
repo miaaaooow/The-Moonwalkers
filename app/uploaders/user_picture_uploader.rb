@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 class UserPictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
@@ -17,7 +17,7 @@ class UserPictureUploader < CarrierWave::Uploader::Base
   process :resize_to_fit => [200, 300]
 
   version :thumb do
-    process :scale => [50, 50]
+    process :resize_to_fit => [50, 50]
   end
   
   version :mw_thumb do

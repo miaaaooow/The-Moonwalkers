@@ -1,15 +1,15 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 
 class UsersController < ApplicationController
   # GET /users
   def index
-    #@users = User.page params[:page]
-    @users = User.all
+    @users = User.page params[:page]
+    #@users = User.paginate(:all, :page => params[:page])
   end
 
+  # The coolest action ever :D
   def moonwalkers
-    @users = User.page params[:page]
-    @users = @users.select { |user| user.moonwalker? }
+    @users = User.all.select { |user| user.moonwalker? }
   end
 
   # GET /users/1
@@ -28,13 +28,14 @@ class UsersController < ApplicationController
   end
 
   # POST /users
+  # registration
   def create
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to users_path, notice: 'Регистрирахте потребител успешно.' 
+      redirect_to root_url, notice: "Регистрирахте потребител успешно."
     else
-      render action: "new"
+      render "new"
     end
   end
 
@@ -43,9 +44,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-      redirect_to users_path, notice: 'Профилът бе обновен успешно.' 
+      redirect_to users_path, notice: "Профилът бе обновен успешно." 
     else
-      render action: "edit" 
+      render "edit" 
     end
   end
 
@@ -54,6 +55,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to users_path, notice: 'Потребителят бе изтрит успешно'
+    redirect_to users_path, notice: "Потребителят бе изтрит успешно"
   end
 end

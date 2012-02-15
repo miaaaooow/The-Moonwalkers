@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 
 class ForumTopicsController < ApplicationController
   # GET /forum_topics
@@ -28,7 +28,7 @@ class ForumTopicsController < ApplicationController
     if @forum_topic.save
       redirect_to forum_topics_path, notice: 'Темата бе създадена успешно.' 
     else
-      render action: "new"
+      render "new"
     end
   end
 
@@ -39,7 +39,7 @@ class ForumTopicsController < ApplicationController
     if @forum_topic.update_attributes(params[:forum_topic])
       redirect_to forum_topics_path, notice: 'Темата бе обновена успешно.' 
     else
-      render action: "edit" 
+      render "edit" 
     end
   end
 

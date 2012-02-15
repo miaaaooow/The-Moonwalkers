@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ForumReply < ActiveRecord::Base
   validates_presence_of :text, :forum_topic_id, :user_id
 

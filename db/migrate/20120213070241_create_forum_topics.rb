@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateForumTopics < ActiveRecord::Migration
   def up
     create_table :forum_topics do |t|

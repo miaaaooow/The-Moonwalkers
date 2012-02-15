@@ -1,8 +1,15 @@
+# -*- encoding : utf-8 -*-
 TheMoonwalkers::Application.routes.draw do
+  get 'log_in' => 'sessions#new', :as => 'log_in'
+  get 'log_out' => 'sessions#destroy', :as => 'log_out'
+  get 'register' => 'users#new', :as => 'register'
 
   root :to => 'history#index'
-  match 'history' => 'history#index'
   
+  match 'history' => 'history#index'
+  match 'profile' => 'users#show'
+  match 'moonwalkers' => 'users#moonwalkers'
+
   resources :users do
     collection do 
       get 'moonwalkers'
@@ -10,14 +17,14 @@ TheMoonwalkers::Application.routes.draw do
   end
 
   resources :novelties
-
+  resources :sessions
   resources :dashboard_entries
 
   resources :albums do
     resource :album_photo
   end
 
-  resources :forum_topics, :as => "forum" do
+  resources :forum_topics do
     resource :forum_reply
   end
 

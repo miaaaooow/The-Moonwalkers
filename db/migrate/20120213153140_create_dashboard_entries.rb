@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDashboardEntries < ActiveRecord::Migration
   def up
     create_table :dashboard_entries do |t|

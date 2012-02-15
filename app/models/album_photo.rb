@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlbumPhoto < ActiveRecord::Base
   validates :photo_url, :presence => true
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DashboardEntry < ActiveRecord::Base
   belongs_to :user
 

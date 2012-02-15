@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Novelty < ActiveRecord::Base
   validates_presence_of :text, :title#, :user_id
 

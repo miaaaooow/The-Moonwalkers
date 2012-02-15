@@ -9,6 +9,7 @@ gem 'rspec'
 gem 'haml'
 gem 'carrierwave'
 gem 'will_paginate'
+gem 'rmagick'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,7 +26,7 @@ end
 group :development, :test do
   gem 'haml-rails'
   gem 'pg'
-  gem 'rspec-rails', '~>2.6'
+  gem 'rspec-rails'
   gem 'webrat'
 end
 

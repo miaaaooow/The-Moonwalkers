@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 
 class NoveltiesController < ApplicationController
   # GET /novelties
@@ -23,7 +23,7 @@ class NoveltiesController < ApplicationController
     if @novelty.save
       redirect_to novelties_path, notice: 'Новината бе създадена успешно.' 
     else
-      render action: "new"
+      render "new"
     end
   end
 
@@ -34,7 +34,7 @@ class NoveltiesController < ApplicationController
     if @novelty.update_attributes(params[:novelty])
       redirect_to novelties_path, notice: 'Новината бе обновена успешно.' 
     else
-      render action: "edit" 
+      render "edit" 
     end
   end
 

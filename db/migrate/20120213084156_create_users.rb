@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateUsers < ActiveRecord::Migration
   def up
     create_table :users do |t|
@@ -10,8 +11,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :album, :limit => 32
       t.string :picture
       t.string :contact
-      t.boolean :admin?, :null => false, :default => false
-      t.boolean :moonwalker?, :null => false, :default => false
+      t.boolean :admin, :null => false, :default => false
+      t.boolean :moonwalker, :null => false, :default => false
      
       t.timestamps
     end
