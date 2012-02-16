@@ -1,5 +1,13 @@
 # -*- encoding : utf-8 -*-
 TheMoonwalkers::Application.routes.draw do
+  get "album_photos/new"
+
+  get "album_photos/create"
+
+  get "album_photos/destroy"
+
+  get "got_its/create"
+
   get 'log_in' => 'sessions#new', :as => 'log_in'
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   get 'register' => 'users#new', :as => 'register'
@@ -7,7 +15,6 @@ TheMoonwalkers::Application.routes.draw do
   root :to => 'history#index'
   
   match 'history' => 'history#index'
-  match 'profile' => 'users#show'
   match 'moonwalkers' => 'users#moonwalkers'
 
   resources :users do

@@ -14,10 +14,14 @@ class AlbumPhotoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  process :resize_to_fit => [600, 800]
+  process :resize_to_fit => [600, 600]
 
   version :thumb do
-     process :resize_to_fit => [100, 100]
+    process :resize_to_fit => [100, 100]
+  end
+
+  version :middle_finger do 
+    process :resize_to_fit => [300, 300]
   end
 
   def extension_white_list

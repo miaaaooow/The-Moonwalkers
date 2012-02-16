@@ -1,16 +1,14 @@
-= # encoding UTF-8
-
 %h1 Форум
 
 %table
   %tr
+    %th
     %th Тема
     %th Създадена от
     %th Създадена на
-    %th Повече...
   - @forum_topics.each do |topic| 
     %tr 
-      %td= link_to 'Виж', administrate_topic_path(topic)
+      %td= link_to 'Виж', administrate_topic_path topic 
       %td= topic.title
       %td= topic.user
       %td= topic.created_at

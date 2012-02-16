@@ -4,5 +4,5 @@ class AlbumPhoto < ActiveRecord::Base
 
   belongs_to :album
 
-  mount_uploader :photo_url, PhotoUploader
+  mount_uploader :photo_url, AlbumPhotoUploader
 end

@@ -1,11 +1,32 @@
-%p#notice
-  Промените бяха запазени успешно.
+%h1
+  Профил на
+  = @user.display_name
 
-%h3.novelty_title
-  = @novelty.title
-.novelty_text
-  = @novelty.text
+.profile_picture
+  = if @user.picture
+    - image_tag @user.picture
+- if @user.song
+  %p.fave
+    Любима песен:
+    = @user.song
+- if @user.album
+  %p.fave
+    Любим албум:
+    = @user.album
+- if @user.description
+  %p.fave
+    Още...
+    %br
+    = @user.description
+- if@user.contact
+  %p.fave
+    Контакт:
+    = @user.contact
 
-= link_to 'Редактиране', edit_novelty_path(@novelty) |
-= link_to 'Обратно', novelties_path
+- if current_user.eql? @user or admin?
+  = link_to 'Редактиране', edit_user_path(@user)
+- if moonwalker?
+  = link_to 'Обратно', moonwalkers_path
+- else
+  = link_to 'Обратно', users_path
 

@@ -1,42 +1,36 @@
+- field_size = 27
 = form_for @user do |form|
-  = if @user.errors.any?
-    .error_messages
-    %ul
-      = for message in @user.errors
-        %li
-          = message      
-  %p
-    = form.label :username, 'Потребителско име*'
-    = form.text_field :username, :size => 27
-  %p
-    = form.label :user_password, 'Парола*'
-    = form.password_field :password, :size => 27
-  %p
-    = form.label :user_password_confirmation, 'Потвърждение на паролата*'
-    = form.password_field :password_confirmation, :size => 27
-  %p
-    = form.label :name, "Публично Име"
-    = form.text_field :name, :size => 27
-  %p 
-    = form.label :email, "e-mail*"
-    = form.text_field :email, :size => 27 
-  %p 
-    = form.label :contact, "Публичен контакт"
-    = form.text_field :contact, :size => 27 
-  %p
-    = form.label :song, "Любима песен"
-    = form.text_field :song, :size => 27
-  %p
-    = form.label :album, "Любим албум"
-    = form.text_field :album, :size => 27
-  %p
-    = form.label :desription, "Описание"
-    = form.text_area :description, :size => 27
-  %p
-    = # image_tag(@user.picture) if @user.picture? %>
-    = form.file_field :picture
-  %p
-    = form.submit
+  
+  %p= form.label :username, 'Потребителско име*'
+  %p= form.text_field :username, :size => field_size
+  
+  %p= form.label :user_password, 'Парола*'
+  %p= form.password_field :password, :size => field_size
+  
+  %p= form.label :user_password_confirmation, 'Потвърждение на паролата*'
+  %p= form.password_field :password_confirmation, :size => field_size
+  
+  %p= form.label :name, "Публично Име"
+  %p= form.text_field :name, :size => field_size
+   
+  %p= form.label :email, "e-mail*"
+  %p= form.text_field :email, :size => field_size 
+   
+  %p= form.label :contact, "Публичен контакт"
+  %p= form.text_field :contact, :size => field_size 
+  
+  %p= form.label :song, "Любима песен"
+  %p= form.text_field :song, :size => field_size
+  
+  %p= form.label :album, "Любим албум"
+  %p= form.text_field :album, :size => field_size
+  
+  %p= form.label :album, "Описание"
+  %p= form.text_area :album, :size => field_size
+  
+  %p= form.file_field :picture
+  
+  %p= form.submit
 
 .note
   Със * са означени задължителните полета.

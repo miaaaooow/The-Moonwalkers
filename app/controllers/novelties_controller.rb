@@ -19,7 +19,8 @@ class NoveltiesController < ApplicationController
   # POST /novelties
   def create
     @novelty = Novelty.new(params[:novelty])
-
+    @novelty.user = current_user
+    
     if @novelty.save
       redirect_to novelties_path, notice: 'Новината бе създадена успешно.' 
     else

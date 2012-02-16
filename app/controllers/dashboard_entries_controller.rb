@@ -3,10 +3,11 @@
 class DashboardEntriesController < ApplicationController
   def index
     @dashboard_entries = DashboardEntry.page params[:page]
-  end
 
-  def show
-    @dashboard_entry = DashboardEntry.find(params[:id])
+    @got_its = Hash.new
+    @dashboard_entries.each do |entry|
+      @got_its[entry.id] = GotIts.find_by_dashboard_entry_id(entry.id)
+    end
   end
 
   def new
@@ -19,6 +20,7 @@ class DashboardEntriesController < ApplicationController
 
   def create
     @dashboard_entry = DashboardEntry.new(params[:dashboard_entry])
+    @dashboard_entry.user = current_user
 
     if @dashboard_entry.save
       redirect_to dashboard_entries_path, notice: 'Новината бе създадена успешно.' 
@@ -40,6 +42,11 @@ class DashboardEntriesController < ApplicationController
   def destroy
     @dashboard_entry = DashboardEntry.find(params[:id])
     @dashboard_entry.destroy
+    
+    # delete corresponding GotIts.
+    Got_its.find_by_dashboard_entry_id(@dashboard_entry.id).each do |got_it|
+      got_it.destroy
+    end
 
     redirect_to dashboard_entries_path, notice: 'Новината бе изтрита успешно.'
   end

@@ -1,11 +1,12 @@
 %h1 The MOONWALKERS
 
 - @users.each do |user| 
-  .picture
-    = user.picture
-  .small_profile
-    .name
-      = user.name
-    .description
-      = user.contact
+  %p
+    .picture
+      = image_tag user.picture_url(:mw_thumb)
+    .small_profile
+      .name
+        = link_to user.name, user
+      .description
+        = user.contact
 

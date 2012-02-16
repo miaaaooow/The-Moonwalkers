@@ -1,10 +1,9 @@
 # -*- encoding : utf-8 -*-
-#encoding UTF-8
 
 class User < ActiveRecord::Base
   attr_accessor :password
   
-  before_save :set_new_password
+  before_save :set_new_password, :set_picture
 
   validates_confirmation_of :password, :on => :create
   validates_presence_of :password, :on => :create
@@ -41,6 +40,14 @@ class User < ActiveRecord::Base
     end
     role
   end
+  
+  def display_name
+    if self.name
+      self.name
+    else
+      self.username
+    end
+  end
 
   def self.authenticate(username, password)
     user = self.find_by_username(username)
@@ -63,6 +70,12 @@ class User < ActiveRecord::Base
     if password.present?
       self.salt = rand(555555555)
       self.hashed_password = User.encrypt_password(password, self.salt)
+    end
+  end
+
+  def set_picture
+    unless self.picture 
+      self.picture = UserPictureUploader.default_url
     end
   end
 end

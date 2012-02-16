@@ -8,17 +8,16 @@
   %h2
     = link_to "Начало", :history
     = link_to "Новини", :novelties 
-    = if moonwalker?
+    - if moonwalker?
       = link_to "Бележки", :dashboard_entries 
     = link_to "Moonwalkers", :controller => "users", :action => "moonwalkers" 
     = link_to "Галерия", :albums 
     = link_to "Форум", :forum_topics 
     = link_to "Потребители", :users
-    = if logged_in?
-      = link_to "Профил"
-
+    - if logged_in?
+      = link_to "Профил", :controller => "users", :action => "show", :id => current_user.id
 .login
-  = unless logged_in?
+  - unless logged_in?
     = link_to "Регистрация", :controller => "users", :action => "new"
     = link_to "Вход", :controller => "sessions", :action => "new"
   - else
@@ -26,7 +25,6 @@
     = current_user.username
     \! Wanna be startin' something? :)
     = link_to "Изход", :controller => "sessions", :action => "destroy"
-
 = yield
 
 

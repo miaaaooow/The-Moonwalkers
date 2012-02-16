@@ -9,12 +9,7 @@ class UserPictureUploader < CarrierWave::Uploader::Base
     "uploads/users/#{model.id}"
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
-
-  process :resize_to_fit => [200, 300]
+  process :resize_to_fit => [400, 400]
 
   version :thumb do
     process :resize_to_fit => [50, 50]
@@ -26,5 +21,9 @@ class UserPictureUploader < CarrierWave::Uploader::Base
 
   def extension_white_list
     %w(jpg jpeg gif png)
+  end
+  
+  def default_url
+    "/images/fallback/" + [version_name, "no-avatar.jpeg"].compact.join('_')
   end
 end
