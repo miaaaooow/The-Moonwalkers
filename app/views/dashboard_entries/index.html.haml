@@ -1,3 +1,5 @@
+%p#notice= notice
+
 %h1 Наши новини
 
 %table
@@ -9,11 +11,13 @@
 
   - @dashboard_entries.each do |dashboard_entry|
     %tr
-      %td= dashboard_entry.content
-      %td= link_to 'Show', dashboard_entry
-      %td= link_to 'Edit', edit_dashboard_entry_path(dashboard_entry)
-      %td= link_to 'Destroy', dashboard_entry, :confirm => 'Сигурни ли сте?', :method => :delete
-
-%br
-
-= link_to 'New Dashboard entry', new_dashboard_entry_path
+      %td
+        = dashboard_entry.content
+        = render dashboard_entry
+      %td= link_to 'GotIt!', :controller => :got_its, |
+                             :action => :create, |
+                             :dashboard_entry_id => dashboard_entry.id, |
+                             :user_id => current_user.id |
+      %td= link_to 'Редактирай', edit_dashboard_entry_path(dashboard_entry)
+          
+= link_to 'Добави Новина', new_dashboard_entry_path

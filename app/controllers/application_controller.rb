@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   private 
   
   def set_time_zone
-    Time.zone = 'Sofia'
+    Time.zone = "Sofia"
   end
 
   def current_user
@@ -30,5 +30,10 @@ class ApplicationController < ActionController::Base
 
   def moonwalker?
     current_user and (current_user.moonwalker or current_user.admin)
+  end
+
+  def user_display_name(user_id)
+    user = User.find(user_id)
+    user.display_name if user else "Анонимен"
   end
 end

@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :from_relationships, :class_name => Relationship, :foreign_key => :from_user_id
   has_many :to_relationships, :class_name => Relationship, :foreign_key => :to_user_id
   
+  default_scope :order => "created_at ASC"
   self.per_page = 20
 
   mount_uploader :picture, UserPictureUploader
@@ -77,5 +78,9 @@ class User < ActiveRecord::Base
     unless self.picture 
       self.picture = UserPictureUploader.default_url
     end
+  end
+  
+  def validate_email
+	#TODO 
   end
 end

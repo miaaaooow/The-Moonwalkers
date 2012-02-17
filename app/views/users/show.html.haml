@@ -1,5 +1,7 @@
-%h1
-  Профил на
+%p#notice= notice
+
+%h1 
+  Профил на 
   = @user.display_name
 
 .profile_picture
@@ -8,20 +10,19 @@
 - if @user.song
   %p.fave
     Любима песен:
-    = @user.song
+    %p= @user.song
 - if @user.album
   %p.fave
     Любим албум:
-    = @user.album
+    %p= @user.album
 - if @user.description
   %p.fave
     Още...
-    %br
-    = @user.description
+    %p= @user.description
 - if@user.contact
   %p.fave
     Контакт:
-    = @user.contact
+    %p= @user.contact
 
 - if current_user.eql? @user or admin?
   = link_to 'Редактиране', edit_user_path(@user)

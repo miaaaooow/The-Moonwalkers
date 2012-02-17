@@ -1,11 +1,5 @@
 # -*- encoding : utf-8 -*-
 TheMoonwalkers::Application.routes.draw do
-  get "album_photos/new"
-
-  get "album_photos/create"
-
-  get "album_photos/destroy"
-
   get "got_its/create"
 
   get 'log_in' => 'sessions#new', :as => 'log_in'
@@ -28,9 +22,9 @@ TheMoonwalkers::Application.routes.draw do
   resources :dashboard_entries
 
   resources :albums do
-    resource :album_photo
+    resources :album_photos
   end
-
+  
   resources :forum_topics do
     resource :forum_reply
   end

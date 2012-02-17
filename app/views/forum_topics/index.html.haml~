@@ -8,7 +8,7 @@
     %th Създадена на
   - @forum_topics.each do |topic| 
     %tr 
-      %td= link_to 'Виж', administrate_topic_path topic 
+      %td= link_to 'Виж', administrate_topic_path(topic)
       %td= topic.title
       %td= topic.user
       %td= topic.created_at

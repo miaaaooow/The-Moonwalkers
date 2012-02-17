@@ -19,4 +19,8 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to novelties_path, :notice => "Don't Walk Away! ;-)"
   end
+
+  def expire_session
+    #TODO
+  end
 end

@@ -1,8 +1,10 @@
-%h1 Listing dashboard_entries
+%p#notice= notice
+
+%h1 Наши новини
 
 %table
   %tr
-    %th Content
+    %th
     %th
     %th
     %th
@@ -10,10 +12,10 @@
   - @dashboard_entries.each do |dashboard_entry|
     %tr
       %td= dashboard_entry.content
-      %td= link_to 'Show', dashboard_entry
-      %td= link_to 'Edit', edit_dashboard_entry_path(dashboard_entry)
-      %td= link_to 'Destroy', dashboard_entry, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Dashboard entry', new_dashboard_entry_path
+      %td= link_to 'GotIt!', got_its_path(dashboard_entry)
+      %td= link_to 'Редактирай', edit_dashboard_entry_path(dashboard_entry)
+      %td= link_to 'Изтрий', dashboard_entry, :confirm => 'Сигурни ли сте?', :method => :delete
+    %tr
+      = render dashboard_entry
+          
+= link_to 'Добави Новина', new_dashboard_entry_path

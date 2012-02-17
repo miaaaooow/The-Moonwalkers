@@ -1,27 +1,22 @@
 # -*- encoding : utf-8 -*-
 
 class ForumTopicsController < ApplicationController
-  # GET /forum_topics
   def index
     @forum_topics = ForumTopic.page params[:page]
   end
 
-  # GET /forum_topics/1
   def show
     @forum_topic = ForumTopic.find(params[:id])
   end
 
-  # GET /forum_topics/new
   def new
     @forum_topic = ForumTopic.new
   end
 
-  # GET /forum_topics/1/edit
   def edit
     @forum_topic = ForumTopic.find(params[:id])
   end
 
-  # POST /forum_topics
   def create
     @forum_topic = ForumTopic.new(params[:forum_topic])
 
@@ -32,7 +27,6 @@ class ForumTopicsController < ApplicationController
     end
   end
 
-  # PUT /forum_topics/1
   def update
     @forum_topic = ForumTopic.find(params[:id])
 
@@ -43,7 +37,6 @@ class ForumTopicsController < ApplicationController
     end
   end
 
-  # DELETE /forum_topics/1
   def destroy
     @forum_topic = ForumTopic.find(params[:id])
     @forum_topic.destroy

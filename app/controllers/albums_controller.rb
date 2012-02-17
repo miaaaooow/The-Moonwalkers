@@ -10,15 +10,16 @@ class AlbumsController < ApplicationController
   end
  
   def show
-    @album = Album.find(params[:id])
+    @album = Album.find params[:id]
+    @photos = @album.photos_on_page params[:page] 
   end
 
   def edit
-    @album = Album.find(params[:id])
+    @album = Album.find params[:id]
   end
 
   def create
-    @album = Album.new(params[:album])
+    @album = Album.new params[:album] 
     
     if @album.save
       redirect_to albums_path, notice: 'Албумът бе създаден успешно.' 
@@ -28,9 +29,9 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album = Album.find(params[:id])
+    @album = Album.find params[:id] 
 
-    if @album.update_attributes(params[:album])
+    if @album.update_attributes params[:album]
       redirect_to albums_path, notice: 'Албумът бе обновен успешно.' 
     else
       render "edit" 
