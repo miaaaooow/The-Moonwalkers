@@ -22,9 +22,10 @@ end
 group :development, :test do
   gem 'haml-rails'
   gem 'rspec-rails'
-#  gem 'factory_girl_rails'
+  gem 'factory_girl_rails'
   gem 'cucumber-rails'
   gem 'webrat'
+  gem 'capybara'
 end
 
 # To use ActiveModel has_secure_password

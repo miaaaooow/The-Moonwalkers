@@ -1,7 +1,0 @@
-%h2
-  Нов АУ!БУМ! :)
-
-= render 'form'
-
-%p= link_to 'Обратно', albums_path
-

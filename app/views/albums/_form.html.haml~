@@ -1,8 +1,0 @@
-- form_for @album do |form|
-  = form.label :name, "Име на албума"
-  %p= form.text_field :name
-  %p= form.label :description, "Описание"
-  %p= form.text_area :description
-  %p= form.label :cover, "Обложка"
-  %p= form.file_field :cover
-  %p= form.submit

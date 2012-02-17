@@ -1,6 +1,0 @@
-= form_for @dashboard_entry do |f|
-  .content
-    %p= f.label :content
-    %p= f.text_area :content, "Съдържание"
-  .actions
-    = f.submit 'Shout!'

@@ -12,15 +12,15 @@
 %p
   - if @photos
     - @photos.each do |photo| 
-      = image_tag photo.photo_url_url :thumb
-      %h3= link_to photo.description, album_album_photos_path(photo)
+      = image_tag photo.photo_url :thumb
+      %h3= link_to photo.description, album_photo_path(photo)
       Добавена на
       = photo.created_at      
       = if moonwalker? 
         = link_to "Изтрий", album, confirm: "Сигурни ли сте?", method: :delete
 
 - if moonwalker? 
-  %h3= link_to "Добави снимка", new_album_album_photo_path(@album)
+  %h3= link_to "Добави снимка", new_album_photo_path(@album)
 
 %p= link_to "Обратно", albums_path
 

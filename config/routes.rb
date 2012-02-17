@@ -22,7 +22,7 @@ TheMoonwalkers::Application.routes.draw do
   resources :dashboard_entries
 
   resources :albums do
-    resources :album_photos
+    resources :photos
   end
   
   resources :forum_topics do

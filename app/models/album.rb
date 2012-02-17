@@ -6,7 +6,7 @@ class Album < ActiveRecord::Base
 
   validates_presence_of :name
 
-  has_many :album_photos
+  has_many :photos
   
   default_scope :order => "updated_at DESC"
   self.per_page = 9
@@ -14,12 +14,12 @@ class Album < ActiveRecord::Base
   mount_uploader :cover, AlbumPhotoUploader
 
   def photos_on_page(this_page)
-    album_photos.paginate :page => this_page
+    photos.paginate :page => this_page
   end
 
   private
 
   def set_cover
-    #TODO     
+    self.cover = self.photos.first unless self.cover      
   end
 end

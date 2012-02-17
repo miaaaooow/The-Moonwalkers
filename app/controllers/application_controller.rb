@@ -31,9 +31,4 @@ class ApplicationController < ActionController::Base
   def moonwalker?
     current_user and (current_user.moonwalker or current_user.admin)
   end
-
-  def user_display_name(user_id)
-    user = User.find(user_id)
-    user.display_name if user else "Анонимен"
-  end
 end

@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,13 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214120352) do
-
-  create_table "album_photos", :force => true do |t|
-    t.string  "photo_url"
-    t.text    "description"
-    t.integer "album_id"
-  end
+ActiveRecord::Schema.define(:version => 20120214122222) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -65,6 +59,12 @@ ActiveRecord::Schema.define(:version => 20120214120352) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "photos", :force => true do |t|
+    t.string  "photo"
+    t.text    "description"
+    t.integer "album_id"
+  end
+
   create_table "relationships", :force => true do |t|
     t.string   "type"
     t.integer  "from_user_id"
@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(:version => 20120214120352) do
     t.string   "album",           :limit => 32
     t.string   "picture"
     t.string   "contact"
-    t.boolean  "admin?",                        :default => false, :null => false
-    t.boolean  "moonwalker?",                   :default => false, :null => false
+    t.boolean  "admin",                         :default => false, :null => false
+    t.boolean  "moonwalker",                    :default => false, :null => false
     t.datetime "created_at",                                       :null => false
     t.datetime "updated_at",                                       :null => false
     t.text     "description"

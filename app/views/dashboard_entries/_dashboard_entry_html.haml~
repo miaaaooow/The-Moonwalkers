@@ -1,4 +1,0 @@
-%ul 
-  = @got_its[dashboard_entry.id].each do |username|
-    %li= username
-    разбра, че това се случва! :)
