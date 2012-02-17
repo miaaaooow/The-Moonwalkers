@@ -7,6 +7,7 @@ class AlbumPhoto < ActiveRecord::Base
 
   mount_uploader :photo_url, AlbumPhotoUploader
 
+  #wtf
   def photos_on_page(this_page)
     album_photos.paginate :page => this_page, :per_page => AlbumPhotos.per_page
   end

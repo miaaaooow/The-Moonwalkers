@@ -12,7 +12,10 @@
   - @dashboard_entries.each do |dashboard_entry|
     %tr
       %td
-        = dashboard_entry.content
+        %h2.new= dashboard_entry.content
+        .note
+          Публикувано от
+          = dashboard_entry.user.display_name
         = render dashboard_entry
       %td= link_to 'GotIt!', :controller => :got_its, |
                              :action => :create, |
@@ -21,3 +24,5 @@
       %td= link_to 'Редактирай', edit_dashboard_entry_path(dashboard_entry)
           
 = link_to 'Добави Новина', new_dashboard_entry_path
+
+= will_paginate @dashboard_entries 

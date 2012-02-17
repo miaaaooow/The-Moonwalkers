@@ -1,5 +1,5 @@
 - form_for @album do |form|
-  %p= form.label :name, "Име на албума"
+  = form.label :name, "Име на албума"
   %p= form.text_field :name
   %p= form.label :description, "Описание"
   %p= form.text_area :description

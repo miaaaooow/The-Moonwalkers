@@ -13,7 +13,7 @@
     %th Роля
     %th Регистриран на
     %th Повече...
-    = if admin?
+    - if admin?
       %th Редактирай
   - @users.each do |user| 
     %tr 
@@ -26,7 +26,7 @@
       %td= user.role
       %td= user.created_at
       %td= link_to "Виж", user 
-      = if admin?
+      - if admin?
         %td= link_to "Редактирай", :action => "edit", :id => user.id
 
 = will_paginate @users, :previous_label => t("previous"), :next_label => t("next")

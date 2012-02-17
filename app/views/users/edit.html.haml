@@ -1,5 +1,16 @@
-%h2 Редактиране на потребител
+%h2 
+  Редактиране на 
+  = @user.display_name
 
-= render 'form' 
+= if current_user.id == @user.id
+  = render 'form' 
+
+= if admin?
+  - form_for @user do |form|
+    = 'Moonwalker?'
+    = form.check_box :moonwalker
+    = 'Администратор?'
+    = form.check_box :admin
+    %p= form.submit
 
 = link_to 'Обратно', users_path

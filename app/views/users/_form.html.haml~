@@ -1,4 +1,7 @@
+%p#notice= notice
+
 - field_size = 27
+
 = form_for @user do |form|
   
   %p= form.label :username, 'Потребителско име*'
@@ -25,8 +28,8 @@
   %p= form.label :album, "Любим албум"
   %p= form.text_field :album, :size => field_size
   
-  %p= form.label :album, "Описание"
-  %p= form.text_area :album, :size => field_size
+  %p= form.label :description, "Описание"
+  %p= form.text_area :description, :cols => field_size, :rows => field_size / 2 
   
   %p= form.file_field :picture
   

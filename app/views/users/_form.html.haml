@@ -1,37 +1,39 @@
 %p#notice= notice
 
-- field_size = 27
+- field_cols = 27
 
 = form_for @user do |form|
   
   %p= form.label :username, 'Потребителско име*'
-  %p= form.text_field :username, :size => field_size
+  %p= form.text_field :username, :cols => field_cols
   
   %p= form.label :user_password, 'Парола*'
-  %p= form.password_field :password, :size => field_size
+  %p= form.password_field :password, :cols => field_cols
   
   %p= form.label :user_password_confirmation, 'Потвърждение на паролата*'
-  %p= form.password_field :password_confirmation, :size => field_size
+  %p= form.password_field :password_confirmation, :cols => field_cols
   
   %p= form.label :name, "Публично Име"
-  %p= form.text_field :name, :size => field_size
+  %p= form.text_field :name, :cols => field_cols
    
   %p= form.label :email, "e-mail*"
-  %p= form.text_field :email, :size => field_size 
+  %p= form.text_field :email, :cols => field_cols 
    
   %p= form.label :contact, "Публичен контакт"
-  %p= form.text_field :contact, :size => field_size 
+  %p= form.text_field :contact, :cols => field_cols 
   
   %p= form.label :song, "Любима песен"
-  %p= form.text_field :song, :size => field_size
+  %p= form.text_field :song, :cols => field_cols
   
   %p= form.label :album, "Любим албум"
-  %p= form.text_field :album, :size => field_size
+  %p= form.text_field :album, :cols => field_cols
   
-  %p= form.label :album, "Описание"
-  %p= form.text_area :album, :cows => field_size, :rows => fields_size / 2 
+  %p= form.label :description, "Описание"
+  %p= form.text_area :description, :cols => field_cols, :rows => field_cols / 2 
   
   %p= form.file_field :picture
+  
+  
   
   %p= form.submit
 

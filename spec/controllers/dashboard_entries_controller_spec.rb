@@ -25,7 +25,11 @@ describe DashboardEntriesController do
   # DashboardEntry. As you add validations to DashboardEntry, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { 
+      :dashboard_entry_id => 10, 
+      :user_id => 5,
+      :content => "Hey"
+    }
   end
   
   # This should return the minimal set of values that should be in the session
