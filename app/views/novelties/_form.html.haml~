@@ -1,0 +1,10 @@
+= form_for @novelty do |form|
+  = form.label :title, "Заглавие"
+  %br
+  = form.text_field :title
+  %br
+  = form.label :text, "Съдържание"
+  %br
+  = form.text_area :text
+  %br
+  = form.submit

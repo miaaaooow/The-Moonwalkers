@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%h1 Галерия на The Moonwalkers
+
+%p
+  %h2 Албум:
+    = @album.name
+%p
+  = @album_photos.each do |photo| 
+    = image_tag photo.photo_url_url(:middle_finger)
+    %h3= link_to photo.name, # gallery_path(album)
+      Добавена на
+      = photo.created_at      
+    = if moonwalker? 
+      = link_to 'Изтрий', album, confirm: 'Сигурни ли сте?', method: :delete
+
+- if moonwalker? 
+  %h3= link_to 'Добави', new_album_photo_path 
+
+= will_paginate @album_photos, :previous_label => t("previous"), :next_label => t("next")
+

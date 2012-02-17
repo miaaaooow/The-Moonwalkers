@@ -1,0 +1,7 @@
+%h2
+  Добавяне на новина
+
+= render 'form'
+
+= link_to 'Обратно', novelties_path
+

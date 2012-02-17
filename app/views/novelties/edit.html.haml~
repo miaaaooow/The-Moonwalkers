@@ -1,0 +1,6 @@
+%h2 
+  Редактиране на новина
+
+= render 'form' 
+
+= link_to 'Обратно', novelties_path

@@ -1,0 +1,28 @@
+%p#notice= notice
+
+%h3.album_name
+  = @album.name
+
+%p= image_tag @album.cover_url :middle_finger
+
+%p= @album.description
+
+%p Последно обновен на
+= @album.updated_at
+
+%p
+  - if @photos
+    = @photos.each do |photo| 
+      = image_tag photo.photo_url_url :thumb
+      %h3= link_to photo.name, album_photos_path
+      Добавена на
+      = photo.created_at      
+      = if moonwalker? 
+        = link_to 'Изтрий', album, confirm: 'Сигурни ли сте?', method: :delete
+
+- if moonwalker? 
+  %h3= link_to 'Добави', new_album_album_photo_path
+
+%p= link_to 'Обратно', albums_path
+
+= will_paginate @photos

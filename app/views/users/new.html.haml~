@@ -1,0 +1,6 @@
+%h1 Регистрация в The Moonwalkers
+
+= render 'form'
+
+= link_to 'Обратно', novelties_path 
+

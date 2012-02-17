@@ -1,0 +1,6 @@
+= form_for @album_photo do |form|
+  %p= form.label :description, "Описание"
+  %p= form.text_area :description
+  %p= form.label :photo_url, "Файл"
+  %p= form.file_field :photo_url
+  %p= form.submit

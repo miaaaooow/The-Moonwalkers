@@ -1,0 +1,58 @@
+# -*- encoding : utf-8 -*-
+
+class AlbumPhotosController < ApplicationController
+ before_filter :load_album
+  
+ def index
+    @album_photos = @album.album_photos
+  end
+
+  def new
+    @album_photo = @album.album_photos.new
+  end
+
+  def gallery
+    #TODO implement gallery view
+  end
+ 
+  def show
+    @album_photo = album_photo.find(params[:id])
+  end
+
+  def edit
+    @album_photo = album_photo.find(params[:id])
+  end
+
+  def create
+    @album_photo = album_photo.new(params[:album_photo])
+    
+    if @album_photo.save
+      redirect_to album_photos_path, notice: 'Снимката бе създадена успешно.' 
+    else
+      render "new"
+    end
+  end
+
+  def update
+    @album_photo = album_photo.find(params[:id])
+
+    if @album_photo.update_attributes(params[:album_photo])
+      redirect_to album_photos_path, notice: 'Снимката бе обновена успешно.' 
+    else
+      render "edit" 
+    end
+  end
+
+  def destroy
+    @album_photo = album_photo.find(params[:id])
+    @album_photo.destroy
+
+    redirect_to album_photos_path, notice: 'Снимката бе изтрита успешно.'
+  end
+
+  private
+
+  def load_album
+    @album = Album.find params[:album_id]
+  end
+end

@@ -1,0 +1,21 @@
+# -*- encoding : utf-8 -*-
+
+class Album < ActiveRecord::Base
+  
+  before_save :set_cover
+
+  validates_presence_of :name
+
+  has_many :album_photos
+  
+  default_scope :order => "updated_at DESC"
+  self.per_page = 9
+
+  mount_uploader :cover, AlbumPhotoUploader
+
+  private
+  
+  def set_cover
+    #TODO     
+  end
+end

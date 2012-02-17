@@ -1,0 +1,7 @@
+%h1 Editing dashboard_entry
+
+= render 'form'
+
+= link_to 'Show', @dashboard_entry
+\|
+= link_to 'Back', dashboard_entries_path

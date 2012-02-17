@@ -1,0 +1,6 @@
+%ul 
+  - unless @got_its[dashboard_entry.id].empty?
+    - @got_its[dashboard_entry.id].each do |username|
+      %li
+        = username 
+        разбра, че това се случва!
