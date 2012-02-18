@@ -22,11 +22,11 @@ class Album < ActiveRecord::Base
   def set_cover
     unless self.cover
       first = self.photos.first
-      if first
+      if first 
         self.cover = first
       else
         self.cover = AlbumPhotoUploader.default_url
       end
-    else
+    end
   end
 end
