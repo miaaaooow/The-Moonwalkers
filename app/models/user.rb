@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
 
   validates :username, :length => { :minimum => 3, :maximum => 254 }
   validates :email, :length => { :minimum => 7, :maximum => 254 }
-  # TODO add email validation  
-                
+  validates_format_of :email, :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i
+  
   has_many :novelties
   has_many :dashboard_entry
   has_many :got_its
@@ -78,9 +78,5 @@ class User < ActiveRecord::Base
     unless self.picture 
       self.picture = UserPictureUploader.default_url
     end
-  end
-  
-  def validate_email
-	#TODO 
   end
 end

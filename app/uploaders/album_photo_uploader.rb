@@ -27,4 +27,8 @@ class AlbumPhotoUploader < CarrierWave::Uploader::Base
   def extension_white_list
      %w(jpg jpeg gif png)
   end
+  
+    def default_url
+    "/images/fallback/" + [version_name, "no-photo.jpeg"].compact.join('_')
+  end
 end
