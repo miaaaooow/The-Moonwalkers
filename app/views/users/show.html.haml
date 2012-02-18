@@ -7,19 +7,19 @@
 .profile_picture
   - if @user.picture_url
     = image_tag @user.picture_url
-- if @user.song
+- if @user.song.present?
   %p.fave
     Любима песен:
     %p= @user.song
-- if @user.album
+- if @user.album.present?
   %p.fave
     Любим албум:
     %p= @user.album
-- if @user.description
+- if @user.description.present?
   %p.fave
     Още...
     %p= @user.description
-- if@user.contact
+- if@user.contact.present?
   %p.fave
     Контакт:
     %p= @user.contact

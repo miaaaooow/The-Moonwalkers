@@ -1,0 +1,5 @@
+%h1= @photo.description
+
+= image_tag @photo.photo
+
+%p= link_to "Обратно", album_path(@album)

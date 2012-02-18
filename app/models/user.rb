@@ -1,6 +1,10 @@
 # -*- encoding : utf-8 -*-
 
 class User < ActiveRecord::Base
+  ADMIN = "Администратор"
+  MOONWALKER = "Moonwalker"
+  USER = "Потребител"
+
   attr_accessor :password
   
   before_save :set_new_password, :set_picture
@@ -28,24 +32,23 @@ class User < ActiveRecord::Base
             :class_name => Relationship, :foreign_key => :to_user_id
   
   default_scope :order => "created_at ASC"
-  self.per_page = 20
+  self.per_page = 10
 
   mount_uploader :picture, UserPictureUploader
 
-
   def role 
     if self.admin?
-      role = "Администратор"
+      role = ADMIN
     elsif self.moonwalker?
-      role = "Moonwalker"
+      role = MOONWALKER
     else 
-      role = "Потребител"
+      role = USER
     end
     role
   end
   
   def display_name
-    if self.name
+    if self.name.present?
       self.name
     else
       self.username

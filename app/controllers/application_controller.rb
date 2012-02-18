@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_current_user
-    deny_access unless current_user.id == params[:id]
+    deny_access unless (current_user[:id] == params[:id])
   end
   
   def require_moonwalker
