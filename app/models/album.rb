@@ -9,7 +9,7 @@ class Album < ActiveRecord::Base
   has_many :photos
   
   default_scope :order => "updated_at DESC"
-  self.per_page = 9
+  self.per_page = 8
 
   mount_uploader :cover, AlbumPhotoUploader
 

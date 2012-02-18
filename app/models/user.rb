@@ -11,19 +11,21 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email
 
   validates :username, :length => { :minimum => 3, :maximum => 254 }
+  validates :password, :length => { :minimum => 6 }, :on => :create
   validates :email, :length => { :minimum => 7, :maximum => 254 }
-  validates_format_of :email, :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i
+  validates_format_of :email, :with => /\b[A-Z0-9._a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ 
   
   has_many :novelties
   has_many :dashboard_entry
   has_many :got_its
   has_many :forum_topics
   has_many :forum_replies
-  has_one  :mw_user
 
 # multiple foreign keys to Relationship
-  has_many :from_relationships, :class_name => Relationship, :foreign_key => :from_user_id
-  has_many :to_relationships, :class_name => Relationship, :foreign_key => :to_user_id
+  has_many :from_relationships, 
+            :class_name => Relationship, :foreign_key => :from_user_id
+  has_many :to_relationships, 
+            :class_name => Relationship, :foreign_key => :to_user_id
   
   default_scope :order => "created_at ASC"
   self.per_page = 20

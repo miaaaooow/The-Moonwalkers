@@ -2,5 +2,17 @@
 require 'spec_helper'
 
 describe Album do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_presence_of(:name) }
+
+  it "should paginate correctly" do
+    
+  end
+
+  it "should contain photos" do
+
+  end
+
+  it "should have default album cover if not set" do
+
+  end
 end

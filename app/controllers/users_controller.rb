@@ -46,8 +46,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    unless @user.admin or @user.moonwalker
+      @user.destroy
 
-    redirect_to users_path, notice: "Потребителят бе изтрит успешно"
+      redirect_to users_path, notice: "Потребителят бе изтрит успешно"
+    else
+      redirect_to users_path, notice: "Този потребител е прекалено устойчив."
+    end
   end
 end

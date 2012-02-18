@@ -26,6 +26,8 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'webrat'
   gem 'capybara'
+  gem 'watchr'
+  gem 'spork', '~> 0.9.0.rc'
 end
 
 # To use ActiveModel has_secure_password
