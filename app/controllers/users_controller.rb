@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 
 class UsersController < ApplicationController
+  before_filter :require_admin, :only => :destroy
+  before_filter :require_current_user, :only => [:edit, :update]
+
   def index
     @users = User.page params[:page]
     #@users = User.paginate(:all, :page => params[:page])

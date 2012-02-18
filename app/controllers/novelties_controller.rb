@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 
 class NoveltiesController < ApplicationController
+  before_filter :require_moonwalker, :except => :index
+
   def index
     @novelties = Novelty.page params[:page]
   end

@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   end
 
   def set_picture
-    unless self.picture 
+    unless self.picture
       self.picture = UserPictureUploader.default_url
     end
   end

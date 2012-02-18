@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+require 'thread'
 require 'rubygems'
 
 # Set up gems listed in the Gemfile.

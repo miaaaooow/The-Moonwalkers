@@ -31,6 +31,5 @@ describe DashboardEntriesController do
     it "routes to #destroy" do
       delete("/dashboard_entries/1").should route_to("dashboard_entries#destroy", :id => "1")
     end
-
   end
 end

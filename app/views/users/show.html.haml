@@ -5,8 +5,8 @@
   = @user.display_name
 
 .profile_picture
-  = if @user.picture
-    - image_tag @user.picture
+  - if @user.picture_url
+    = image_tag @user.picture_url
 - if @user.song
   %p.fave
     Любима песен:

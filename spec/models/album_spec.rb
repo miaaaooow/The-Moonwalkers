@@ -5,11 +5,7 @@ describe Album do
   it { should validate_presence_of(:name) }
 
   it "should paginate correctly" do
-    
-  end
-
-  it "should contain photos" do
-
+  
   end
 
   it "should have default album cover if not set" do

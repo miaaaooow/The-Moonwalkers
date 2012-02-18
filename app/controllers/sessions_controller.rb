@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    params[:id] = nil
     redirect_to novelties_path, :notice => "Don't Walk Away! ;-)"
   end
 

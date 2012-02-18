@@ -1,13 +1,13 @@
 # -*- encoding : utf-8 -*-
 
 class DashboardEntriesController < ApplicationController
+  before_filter :require_moonwalker  
+
   def index
     @dashboard_entries = DashboardEntry.page params[:page]
     @got_its = Hash.new
 
     @dashboard_entries.each do |entry|
-     # user_ids = entry.got_its.map { |got_it| got_it.user.display_name }
-     # @got_its[entry.id] = user_ids.map { |user_id| user_display_name(user_id) }
       @got_its[entry.id] = entry.got_its.map { |got_it| got_it.user.display_name }.uniq
     end
   end

@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 
 class AlbumsController < ApplicationController
+  before_filter :require_moonwalker, :except => [:index, :show]
+
   def index
     @albums = Album.all
   end

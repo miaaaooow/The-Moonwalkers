@@ -31,4 +31,20 @@ class ApplicationController < ActionController::Base
   def moonwalker?
     current_user and (current_user.moonwalker or current_user.admin)
   end
+
+  def deny_access
+    redirect_to novelties_path, :flash => { :error => "Нямате достъп." }
+  end
+
+  def require_current_user
+    deny_access unless current_user.id == params[:id]
+  end
+  
+  def require_moonwalker
+    deny_access unless moonwalker?
+  end 
+
+  def require_admin
+    deny_access unless admin?
+  end
 end
